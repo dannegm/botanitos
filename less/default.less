@@ -1,0 +1,574 @@
+@import "keyframes.less";
+
+// Mixins
+.squaresize (@wh) {
+	width: @wh;
+	height: @wh;
+}
+.marginlt (@l,@t) {
+	margin-left: @l;
+	margin-top: @t;
+}
+.scale(@s) {
+	-webkit-transform: scale(@s);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	background: #07835e url('../img/patronverde.png');
+}
+
+h1 {
+	display: block;
+	width: 960px;
+	margin: 40px auto;
+}
+#contenedor {
+	width: 960px;
+	height: 650px;
+	overflow: hidden;
+	margin: 50px auto;
+	margin-top: -65px;
+	background: #25a780;
+	border: 6px solid #1d6750;
+	border-radius: 25px;
+}
+
+h2 {
+	font-size: 1px;
+	height: 100px;
+	width: 800px;
+	color: rgba(0,0,0,0);
+	margin: auto;
+}
+
+.splash {
+	display: block;
+	height: 650px;
+	width: 960px;
+	overflow: hidden;
+
+	-webkit-transition: all .3s;
+
+
+	&.hidden {
+		display: none;
+	}
+	&.back {
+		display: none;
+	}
+}
+
+// Selector
+
+#choicebotanito {
+	background: #8fa4c8;
+
+	h2 {
+		background: url('../img/elige_tu_corredor.png') center center no-repeat;
+		margin-top: 80px;
+	}
+
+
+	figure {
+		display: block;
+		overflow: hidden;
+		ul {
+			display: block;
+			overflow: hidden;
+			text-align: center;
+			li {
+				display: inline-block;
+				overflow: hidden;
+				width: 250px;
+				text-align: center;
+				padding: 30px;
+				border-radius: 25px;
+				cursor: pointer;
+
+				-webkit-transform: scale(0.9);
+				-webkit-transition: all .3s;
+
+				&:hover {
+					background: rgba(0,0,0,.3);
+				}
+
+				img {
+					display: block;
+					width: auto;
+					margin: auto;
+				}
+				.botanoName {
+					display: block;
+					font-size: 1px;
+					height: 82px;
+					width: 250px;
+					color: rgba(0,0,0,0);
+					margin: auto;
+				}
+
+				.nuts {
+					background:  url('../img/nutstxt.png') center center no-repeat;
+				}
+				.onda {
+					background:  url('../img/ondatxt.png') center center no-repeat;
+				}
+				.tacho {
+					background:  url('../img/tachotxt.png') center center no-repeat;
+				}
+			}
+		}
+	}
+}
+
+// Sync
+
+#syncmobile {
+	background: #7cb5a6 url('../img/bgSync.png') left bottom no-repeat;
+
+	h2 {
+		background: url('../img/escanea_este_codigo_para_jugar.png') center center no-repeat;
+		margin-top: 60px;
+	}
+
+	figure {
+		display: block;
+		width: 700px;
+		margin: 50px auto;
+
+		img {
+			margin-top: 50px;
+			display: block;
+			float: left;
+		}
+		#qrcode {
+			margin-left: 50px;
+			margin-top: 20px;
+			height: 200px;
+			width: 200px;
+			float: right;
+			box-shadow: -1px 1px 5px rgba(0,0,0,.4);
+		}
+	}
+}
+
+// win 
+
+#win {
+	background: #c88f95 url('../img/podium.png') center bottom no-repeat;
+	background-size: 700px;
+	h2 {
+		background: url('../img/epic_win.png') center center no-repeat;
+		margin-top: 60px;
+	}
+	#medalla {
+		position: absolute;
+		margin-top: 265px;
+		margin-left: 417px;
+		z-index: 1;
+	}
+	figure {
+		display: block;
+		overflow: hidden;
+		ul {
+			display: block;
+			overflow: hidden;
+			margin-left: 100px;
+
+			li {
+				display: block;
+				float: left;
+				width: 250px;
+				text-align: center;
+				margin: 0;
+
+				-webkit-transform: scale(0.9);
+				-webkit-transition: all .3s;
+
+				&:nth-child(1) {
+					margin-top: 100px;
+				}
+				&:nth-child(2) {
+					margin-top: 30px;
+				}
+				&:nth-child(3) {
+					margin-top: 140px;
+				}
+			}
+		}
+	}
+}
+
+/* Descomentar para debug del paisaje */
+/*
+
+.hidden {
+	visibility: hidden;
+}
+.none {
+	display: none;
+}
+#contenedor, #scene, .scene {
+	width: 5000px;
+}
+#limite {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 965px;
+	height: 1000px;
+	border-left: 5px solid red;
+}
+
+
+/* */
+
+// Escenario
+
+#scene {
+	background: #85c4de;
+	overflow: hidden;
+
+	.scene {
+		display: block;
+		height: 650px;
+		width: 3000px;
+		overflow: hidden !important;
+		margin-top: -650px;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+	.obj {
+		background-size: 100%;
+		display: block;
+	}
+	.layers {
+		.scene;
+		-webkit-transition: all .1s;
+	}
+
+	#sky {
+
+		.nube1 {
+			//position: absolute;
+			background: url('../img/nube.png') center no-repeat;.obj;
+			.squaresize(150px);
+		}
+		.nube2 {
+			//position: absolute;
+			background: url('../img/nube2.png') center no-repeat;.obj;
+			.squaresize(150px);
+		}
+
+		#layer8 { 
+			.nube1 {
+				&:nth-child(1) {
+					.marginlt(172px,66px);
+				}
+				&:nth-child(2) {
+					.marginlt(855px,-112px);
+				}
+				&:nth-child(3) {
+					.marginlt(1694px,-213px);
+				}
+			}
+		}
+		#layer9 { 
+			.nube2 {
+				&:nth-child(1) {
+					.marginlt(558px,36px);
+				}
+				&:nth-child(2) {
+					.marginlt(1313px,-136px);
+				}
+				&:nth-child(3) {
+					.marginlt(2268px,-154px);
+				}
+			}
+		}
+	}
+
+	#landscape {
+		background: #85c4de;
+
+		.pradera {
+			background: url('../img/pradera.png') center 305px repeat-x;
+			
+			height: 650px;
+			margin-top: -650px;
+			position: absolute;
+			width: 960px;
+		}
+
+		.montana1 {
+			//position: absolute;
+			background: url('../img/montana.png') center no-repeat;.obj;
+			.squaresize(600px);
+		}
+		.montana2 {
+			//position: absolute;
+			background: url('../img/montana2.png') center no-repeat;.obj;
+			.squaresize(500px);
+		}
+
+		#layer5 { 
+			.montana1 {
+				.marginlt(58px,-23px);
+			}
+			.montana2 {
+				.marginlt(1919px,-603px);
+			}
+		}
+		#layer6 { 
+			.montana1 {
+				.marginlt(1219px,-20px);
+			}
+			.montana2 {
+				.marginlt(680px,-608px);
+			}
+		}
+		#layer7 {
+			.montana1 {
+				.marginlt(2433px,-19px);
+			}
+			.montana2 {
+				.marginlt(1815px,-183px);
+			}
+		}
+	}
+
+	#plants {
+		// Objetos
+
+		.arbol1 {
+			//position: absolute;
+			background: url('../img/pino.png') center no-repeat;.obj;
+			.squaresize(200px);
+		}
+		.arbol2 {
+			//position: absolute;
+			background: url('../img/arbol.png') center no-repeat;.obj;
+			.squaresize(200px);
+		}
+		.flores1 {
+			//position: absolute;
+			background: url('../img/flor.png') center no-repeat;.obj;
+			.squaresize(80px);
+		}
+		.flores2 {
+			//position: absolute;
+			background: url('../img/flor2.png') center no-repeat;.obj;
+			.squaresize(80px);
+		}
+
+		#layer1 {	
+			.arbol1 {
+				.marginlt(201px,158px);
+			}
+			.arbol2 {
+				.marginlt(1567px,-122px);
+			}
+			.flores1 {
+				.marginlt(601px,-130px);
+			}
+			.flores2 {
+				.marginlt(2017px,-82px);
+			}
+		}
+
+		#layer2 {
+			.arbol1 {
+				.marginlt(1021px,206px);
+			}
+			.arbol2 {
+				.marginlt(680px,-223px);
+			}
+			.flores1 {
+				.marginlt(36px,-103px);
+			}
+			.flores2 {
+				.marginlt(358px,-79px);
+			}
+		}
+
+		#layer3 {
+			.arbol1 {
+				.marginlt(1322px,173px);
+			}
+			.arbol2 {
+				.marginlt(1815px,-183px);
+			}
+			.flores1 {
+				.marginlt(912px,-97px);
+			}
+			.flores2 {
+				.marginlt(1481px,-75px);
+			}
+		}
+
+		#layer4 {
+			.arbol1 {
+				.marginlt(2228px,191px);
+			}
+			.arbol2 {
+				.marginlt(2713px,-219px);
+			}
+			.flores1 {
+				.marginlt(1747px,266px);
+			}
+			.flores2 {
+				.marginlt(2504px,-44px);
+			}
+		}
+	}
+
+	#road {
+		.camino {
+			overflow: hidden;
+			background: #e7c17f;
+			width: 3000px;
+			border-top: 30px solid #62553d;
+			height: 250px;
+			margin-top: 400px;
+
+			#salida {
+				position: absolute;
+				background: #4b4949;
+				height: 220px;
+				width: 90px;
+				margin-left: 70px;
+				-webkit-transform: skew(-20deg,0);
+			}
+			.limits {
+				width: 100%;
+				height: 5px;
+				background: #fff;
+				margin-top: 60px;
+			}
+		}
+	}
+
+	#meta {
+		position: absolute;
+		overflow: hidden;
+		height: 600px;
+		width: 90px;
+		margin-top: -570px;
+		margin-left: 866px;
+		.postes {
+			position: absolute;
+			height: 350px;
+			width: 0;
+			border-left: 5px solid #D3D5D5;
+			border-right: 7px solid #BCBEC0;
+		}
+		.poste {
+			.postes;
+			margin-top: 220px;
+			z-index: 25 !important;
+		}
+		.poste2 {
+			.postes;
+			margin-left: 80px;
+			z-index: 20 !important;
+		}
+		.bandera {
+			position: absolute;
+			background: url('../img/banderasrpite.png');
+			background-size: 20px 40px;
+			.squaresize(80px);
+			margin-left: 12px;
+			-webkit-transform: skew(0, -70deg);
+			-webkit-transform-origin: 100% 0;
+			z-index: 26 !important;
+		}
+	}
+
+	#botanos {
+		position: absolute;
+		width: 960px;
+		.botano {
+			.squaresize(150px);
+
+			&:nth-child(1) {
+				margin-top: 330px;
+				margin-left: 62px;
+				z-index: 21 !important;
+			}
+			&:nth-child(2) {
+				margin-top: -88px;
+				margin-left: 36px;
+				z-index: 22 !important;
+			}
+			&:nth-child(3) {
+				margin-top: -88px;
+				margin-left: 0px;
+				z-index: 23 !important;
+			}
+		}
+
+		#tacho {
+			background: url('../img/tosta_run.gif');
+			.obj;
+		}
+		#onda {
+			background: url('../img/ondas_run.gif');
+			.obj;
+		}
+		#nuts {
+			background: url('../img/nuts_run.gif');
+			.obj;
+		}
+	}
+
+
+
+
+	.layers {
+			-webkit-transform-origin: 0 0;
+	}
+	#layer1 {
+		-webkit-animation: right2left 40s infinite linear;
+	}
+	#layer2 {
+		-webkit-animation: right2left 45s infinite linear;
+	}
+	#layer3 {
+		-webkit-animation: right2left 50s infinite linear;
+	}
+	#layer4 {
+		-webkit-animation: right2left 55s infinite linear;
+	}
+
+	#layer5 {
+		-webkit-animation: right2left 47s infinite linear;
+	}
+	#layer6 {
+		-webkit-animation: right2left 43s infinite linear;
+	}
+	#layer7 {
+		-webkit-animation: right2left 52s infinite linear;
+	}
+
+	#layer8 {
+		-webkit-animation: right2left 60s infinite linear;
+	}
+	#layer9 {
+		-webkit-animation: right2left 65s infinite linear;
+	}
+}
+
+
+
+
+
+
+
+
+

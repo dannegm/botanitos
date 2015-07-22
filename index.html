@@ -1,0 +1,157 @@
+<!doctype html>
+<!-- [ By Dannegm (c) 2013 para AMB Multimedia - http://dannegm.pro ] -->
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link rel="stylesheet/less" href="less/default.less" />
+
+	<title>Botanitos</title>
+	<script src="http://dannegm.pro:2323/socket.io/socket.io.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/less.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+<body>
+	<h1>
+		<img src="img/logo.png" />
+	</h1>
+
+	<div id="contenedor">
+		<section class="splash" id="choicebotanito">
+			<h2 class="animatetitle">Elije tu corredor</h2>
+
+			<figure>
+				<ul>
+					<li class="choiceBotanito" rel="nuts">
+						<img src="img/nut.png" />
+						<span class="botanoName nuts">Nuts</span>
+					</li>
+					<li class="choiceBotanito" rel="onda">
+						<img src="img/onda.png" />
+						<span class="botanoName onda">Onda</span>
+					</li>
+					<li class="choiceBotanito" rel="tacho">
+						<img src="img/tacho.png" />
+						<span class="botanoName tacho">Tacho</span>
+					</li>
+				</ul>
+			</figure>
+		</section>
+		<section class="splash hidden" id="syncmobile">
+			<h2 class="animatetitle" id="choidePlayerTitle">Escanea este código para jugar</h2>
+
+			<figure>
+				<img src="img/graphic_sync.png" />
+				<img src="http://dnn.im/apps/qr.php?s=http://dnn.im/picboard" id="qrcode" />
+		</section>
+
+		<section class="splash hidden" id="scene">
+
+			<div class="scene" id="landscape">
+				<div id="layer5" class="layers">
+					<div class="montana1"></div>
+					<div class="montana2"></div>
+				</div>
+				<div id="layer6" class="layers">
+					<div class="montana1"></div>
+					<div class="montana2"></div>
+				</div>
+				<div id="layer7" class="layers">
+					<div class="montana1"></div>
+				</div>
+				<div class="pradera"></div>
+			</div>
+
+			<div class="scene" id="sky">
+				<div id="layer8" class="layers">
+					<div class="nube1"></div>
+					<div class="nube1"></div>
+					<div class="nube1"></div>
+				</div>
+				<div id="layer9" class="layers">
+					<div class="nube2"></div>
+					<div class="nube2"></div>
+					<div class="nube2"></div>
+				</div>
+			</div>
+
+			<div class="scene" id="plants">
+				<div id="layer1" class="layers">
+					<div class="arbol1"></div>
+					<div class="arbol2"></div>
+					<div class="flores1"></div>
+					<div class="flores2"></div>
+				</div>
+				<div id="layer2" class="layers">
+					<div class="arbol1"></div>
+					<div class="arbol2"></div>
+					<div class="flores1"></div>
+					<div class="flores2"></div>
+				</div>
+				<div id="layer3" class="layers">
+					<div class="arbol1"></div>
+					<div class="arbol2"></div>
+					<div class="flores1"></div>
+					<div class="flores2"></div>
+				</div>
+				<div id="layer4" class="layers">
+					<div class="arbol1"></div>
+					<div class="arbol2"></div>
+					<div class="flores1"></div>
+					<div class="flores2"></div>
+				</div>
+			</div>
+			
+			<div class="scene" id="road">
+				<div class="camino">
+					<div id="salida">
+						<div class="limits"></div>
+						<div class="limits"></div>
+						<div class="limits"></div>
+					</div>
+					<div class="limits"></div>
+					<div class="limits"></div>
+					<div class="limits"></div>
+				</div>
+			</div>
+			
+			<div class="scene" id="botanos">
+				<div class="botano" id="tacho"></div>
+				<div class="botano" id="onda"></div>
+				<div class="botano" id="nuts"></div>
+			</div>
+
+
+			<div id="meta">
+				<div class="poste"></div>
+				<div class="poste2"></div>
+				<div class="bandera"></div>
+			</div>
+		</section>
+
+		<section class="splash hidden" id="win">
+			<img src="img/medalla.png" id="medalla" />
+			<h2 class="animatetitle">Epic win!!!</h2>
+
+			<figure>
+				<ul>
+					<li>
+						<img id="second" src="img/nut.png" />
+					</li>
+					<li>
+						<img id="first" src="img/onda.png" />
+					</li>
+					<li>
+						<img id="third" src="img/tacho.png" />
+					</li>
+				</ul>
+			</figure>
+
+		</section>
+
+	</div>
+
+	<div id="limite"></div>
+</body>
+</html>
